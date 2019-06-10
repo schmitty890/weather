@@ -1,14 +1,24 @@
 const axios = require("axios");
 
 module.exports = {
-  getProducts: function(req, res) {
-    
-    const baseURL = "http://m.lowes.com/CatalogServices/product/nvalue/v1_0?nValue=4294857975&maxResults=8&offset=0&showURL=1&rollUpVariants=1&showUrl=true&storeNumber=0595&priceFlag=rangeBalance&showMarketingBullets=1";
+  currentWeather: function(req, res) {
+    const URL = 'https://api.openweathermap.org/data/2.5/weather?zip=27606&appid=3bce2d04045dd38cbdadc38a931790ac'; 
 
-    axios.get(baseURL)
+    axios.get(URL)
       .then(response => {
-        // console.log(response.data.productList);
-        res.send(response.data.productList);
+        console.log(response.data);
+        res.send(response.data);
+      })
+      .catch(err => res.send(err));
+
+  },
+  forecast: function(req, res) {
+    const URL = 'https://api.openweathermap.org/data/2.5/forecast?zip=27606&appid=3bce2d04045dd38cbdadc38a931790ac';
+
+    axios.get(URL)
+      .then(response => {
+        console.log(response.data);
+        res.send(response.data);
       })
       .catch(err => res.send(err));
 
