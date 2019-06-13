@@ -10,7 +10,6 @@ module.exports = {
         res.send(response.data);
       })
       .catch(err => res.send(err));
-
   },
   forecast: function(req, res) {
     const URL = 'https://api.openweathermap.org/data/2.5/forecast?zip=27606&appid=3bce2d04045dd38cbdadc38a931790ac';
@@ -21,6 +20,5 @@ module.exports = {
         res.send(response.data);
       })
       .catch(err => res.send(err));
-
   }
 };
