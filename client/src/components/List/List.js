@@ -12,7 +12,7 @@ const Hero = props => {
             <Moment fromNow>{props.dateTime}</Moment>
             <div>{props.description}</div>
             <div>{props.icon}</div>
-            <div>{props.temp}</div>
+            <div><i className="wi wi-night-sleet"></i>{props.temp}</div>
         </Col>
     )
 }
