@@ -17,7 +17,8 @@ class Weather extends Component {
             { pressure: "" },
             { cloudiness: "" },
             { sunrise: "" },
-            { sunset: "" }
+            { sunset: "" },
+            { icon: "" }
         ],
         forecastWeather: [],
         zip: "",
@@ -46,7 +47,8 @@ class Weather extends Component {
                     { pressure: resp.data.main.pressure },
                     { cloudiness: resp.data.clouds.all },
                     { sunrise: resp.data.sys.sunrise },
-                    { sunset: resp.data.sys.sunset }
+                    { sunset: resp.data.sys.sunset },
+                    { icon: resp.data.weather[0].icon }
                 ],
                 error: ""
             });
@@ -109,6 +111,7 @@ class Weather extends Component {
                 cloudiness={this.state.currentWeather[6].cloudiness}
                 sunrise={this.state.currentWeather[7].sunrise}
                 sunset={this.state.currentWeather[8].sunset}
+                icon={this.state.currentWeather[9].icon}
                 error={this.state.error} />
             <Row>
                 {forecastWeatherResults}
