@@ -9,7 +9,15 @@ class Weather extends Component {
 
     state = {
         currentWeather: [
-            { name: "" }
+            { name: "" },
+            { temp: "" },
+            { description: "" },
+            { windSpeed: "" },
+            { humidity: "" },
+            { pressure: "" },
+            { cloudiness: "" },
+            { sunrise: "" },
+            { sunset: "" }
         ],
         zip: ""
     }
@@ -27,8 +35,16 @@ class Weather extends Component {
             console.log(resp.data);
             this.setState({ 
                 currentWeather: [
-                { name: resp.data.name }
-              ]
+                    { name: resp.data.name },
+                    { temp: resp.data.main.temp },
+                    { description: resp.data.weather[0].description },
+                    { windSpeed: resp.data.wind.speed },
+                    { humidity: resp.data.main.humidity },
+                    { pressure: resp.data.main.pressure },
+                    { cloudiness: resp.data.clouds.all },
+                    { sunrise: resp.data.sys.sunrise },
+                    { sunset: resp.data.sys.sunset }
+                ]
             });
             })
             .catch(err => console.log('error :('));
@@ -53,7 +69,15 @@ class Weather extends Component {
                 search={this.state.searchedZip}
                 action={this.search} />
             <Hero 
-                city={this.state.currentWeather[0].name} />
+                city={this.state.currentWeather[0].name}
+                temperature={this.state.currentWeather[1].temp}
+                description={this.state.currentWeather[2].description}
+                windSpeed={this.state.currentWeather[3].windSpeed}
+                humidity={this.state.currentWeather[4].humidity}
+                pressure={this.state.currentWeather[5].pressure}
+                cloudiness={this.state.currentWeather[6].cloudiness}
+                sunrise={this.state.currentWeather[7].sunrise}
+                sunset={this.state.currentWeather[8].sunset} />
             <List />
             </Container>
         );
