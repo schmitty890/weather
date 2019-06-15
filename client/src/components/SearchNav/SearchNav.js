@@ -3,7 +3,7 @@ import React from 'react';
 import { Navbar, Form, FormControl, Button } from 'react-bootstrap';
 
 const Hero = props => {
-    console.log(props);
+    // console.log(props);
     let input;
     return (
         <Navbar bg="dark" variant="dark">

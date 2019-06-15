@@ -19,7 +19,8 @@ class Weather extends Component {
             { sunrise: "" },
             { sunset: "" }
         ],
-        zip: ""
+        zip: "",
+        error: ""
     }
 
     componentDidMount() {
@@ -44,10 +45,11 @@ class Weather extends Component {
                     { cloudiness: resp.data.clouds.all },
                     { sunrise: resp.data.sys.sunrise },
                     { sunset: resp.data.sys.sunset }
-                ]
+                ],
+                error: ""
             });
             })
-            .catch(err => console.log('error :('));
+            .catch(err => this.setState( { error: 'We have an error :(' } ));
     }
 
     search = (event, zip) => {
@@ -77,7 +79,8 @@ class Weather extends Component {
                 pressure={this.state.currentWeather[5].pressure}
                 cloudiness={this.state.currentWeather[6].cloudiness}
                 sunrise={this.state.currentWeather[7].sunrise}
-                sunset={this.state.currentWeather[8].sunset} />
+                sunset={this.state.currentWeather[8].sunset}
+                error={this.state.error} />
             <List />
             </Container>
         );
