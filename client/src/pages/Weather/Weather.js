@@ -88,7 +88,7 @@ class Weather extends Component {
         forecastWeatherResults = getFirstFourForecasts.map((forecast, index) => {
             return <List
               key={index} 
-              dateTime={forecast.dt}
+              dateTime={forecast.dt_txt}
               description={forecast.weather[0].description}
               icon={forecast.weather[0].icon} />
         });
