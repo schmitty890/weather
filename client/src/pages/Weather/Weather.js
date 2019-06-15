@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import Hero from '../../components/Hero/Hero';
 import List from '../../components/List/List';
+import SearchNav from '../../components/SearchNav/SearchNav';
 import axios from "axios";
-import { Button, Alert, Container, Row, Col } from 'react-bootstrap';
+import { Button, Alert, Container, Row, Col, Form, FormControl, Navbar, Nav } from 'react-bootstrap';
 
 class Weather extends Component {
 
@@ -13,6 +14,7 @@ class Weather extends Component {
 
     return (
       <Container>
+        <SearchNav />
         <Hero />
         <List />
       </Container>
