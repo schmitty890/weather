@@ -7,19 +7,38 @@ import { Button, Alert, Container, Row, Col, Form, FormControl, Navbar, Nav } fr
 
 class Weather extends Component {
 
-  render() {
-    const style = {
-        border: '1px solid'
-    };
+    state = {
+        currentWeather: [
+            { name: "" }
+        ]
+    }
 
-    return (
-      <Container>
-        <SearchNav />
-        <Hero />
-        <List />
-      </Container>
-    );
-  }
+    componentDidMount() {
+        axios.get('/api/weather/current')
+            .then(resp => {
+            console.log(resp.data);
+            this.setState({ 
+                currentWeather: [
+                { name: resp.data.name }
+              ]
+            });
+            })
+            .catch(err => console.log('error :('));
+        }
+
+    render() {
+        const style = {
+            border: '1px solid'
+        };
+
+        return (
+            <Container>
+            <SearchNav />
+            <Hero />
+            <List />
+            </Container>
+        );
+    }
 }
 
 export default Weather;

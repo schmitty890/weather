@@ -6,7 +6,7 @@ module.exports = {
 
     axios.get(URL)
       .then(response => {
-        console.log(response.data);
+        // console.log(response.data);
         res.send(response.data);
       })
       .catch(err => res.send(err));
@@ -16,7 +16,7 @@ module.exports = {
 
     axios.get(URL)
       .then(response => {
-        console.log(response.data);
+        // console.log(response.data);
         res.send(response.data);
       })
       .catch(err => res.send(err));
