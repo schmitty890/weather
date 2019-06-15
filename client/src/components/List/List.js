@@ -4,13 +4,13 @@ import { Row, Col } from 'react-bootstrap';
 
 const Hero = props => {
     console.log(props);
+
     return (
-        <Row>
-            <Col sm className={styles['list-wrapper']}>sm=true day 1</Col>
-            <Col sm className={styles['list-wrapper']}>sm=true day 2</Col>
-            <Col sm className={styles['list-wrapper']}>sm=true day 3</Col>
-            <Col sm className={styles['list-wrapper']}>sm=true day 4</Col>
-        </Row>
+        <Col sm className={styles['list-wrapper']}>
+            <div>{props.dateTime}</div>
+            <div>{props.description}</div>
+            <div>{props.icon}</div>
+        </Col>
     )
 }
 

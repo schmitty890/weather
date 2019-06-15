@@ -3,7 +3,7 @@ import Hero from '../../components/Hero/Hero';
 import List from '../../components/List/List';
 import SearchNav from '../../components/SearchNav/SearchNav';
 import axios from "axios";
-import { Container } from 'react-bootstrap';
+import { Container, Row } from 'react-bootstrap';
 
 class Weather extends Component {
 
@@ -82,6 +82,17 @@ class Weather extends Component {
         //     border: '1px solid'
         // };
 
+        console.log(this.state.forecastWeather);
+        const getFirstFourForecasts = this.state.forecastWeather.slice(0, 4);
+        let forecastWeatherResults = 'getting weather...';
+        forecastWeatherResults = getFirstFourForecasts.map((forecast, index) => {
+            return <List
+              key={index} 
+              dateTime={forecast.dt}
+              description={forecast.weather[0].description}
+              icon={forecast.weather[0].icon} />
+        });
+
         return (
             <Container>
             <SearchNav 
@@ -98,8 +109,9 @@ class Weather extends Component {
                 sunrise={this.state.currentWeather[7].sunrise}
                 sunset={this.state.currentWeather[8].sunset}
                 error={this.state.error} />
-            <List 
-                weatherListing={this.state.forecastWeather} />
+            <Row>
+                {forecastWeatherResults}
+            </Row>
             </Container>
         );
     }
