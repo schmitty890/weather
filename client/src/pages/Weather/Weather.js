@@ -90,7 +90,8 @@ class Weather extends Component {
               key={index} 
               dateTime={forecast.dt_txt}
               description={forecast.weather[0].description}
-              icon={forecast.weather[0].icon} />
+              icon={forecast.weather[0].icon}
+              temp={forecast.main.temp} />
         });
 
         return (

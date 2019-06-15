@@ -12,6 +12,7 @@ const Hero = props => {
             <Moment fromNow>{props.dateTime}</Moment>
             <div>{props.description}</div>
             <div>{props.icon}</div>
+            <div>{props.temp}</div>
         </Col>
     )
 }
