@@ -24,7 +24,7 @@ class Weather extends Component {
             });
             })
             .catch(err => console.log('error :('));
-        }
+    }
 
     render() {
         const style = {
@@ -34,7 +34,8 @@ class Weather extends Component {
         return (
             <Container>
             <SearchNav />
-            <Hero />
+            <Hero 
+                city={this.state.currentWeather[0].name} />
             <List />
             </Container>
         );
