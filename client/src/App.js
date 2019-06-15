@@ -24,13 +24,13 @@ function App() {
       </Alert>
       <Container>
         <Row>
-          <Col sm={12} style={style}>sm=12</Col>
+          <Col sm={12} style={style}>sm=12 main hero area</Col>
         </Row>
         <Row>
-          <Col sm style={style}>sm=true</Col>
-          <Col sm style={style}>sm=true</Col>
-          <Col sm style={style}>sm=true</Col>
-          <Col sm style={style}>sm=true</Col>
+          <Col sm style={style}>sm=true day 1</Col>
+          <Col sm style={style}>sm=true day 2</Col>
+          <Col sm style={style}>sm=true day 3</Col>
+          <Col sm style={style}>sm=true day 4</Col>
         </Row>
       </Container>
     </div>
