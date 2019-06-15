@@ -3,7 +3,7 @@ import styles from "./Hero.module.css";
 import { Row, Col } from 'react-bootstrap';
 
 const Hero = props => {
-    console.log(props);
+    // console.log(props);
     const error = props.error;
 
     return (

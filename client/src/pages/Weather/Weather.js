@@ -19,18 +19,20 @@ class Weather extends Component {
             { sunrise: "" },
             { sunset: "" }
         ],
+        forecastWeather: [],
         zip: "",
         error: ""
     }
 
     componentDidMount() {
         this.getCurrentWeather();
+        this.getForecastWeather();
     }
 
     getCurrentWeather(zip) {
-        console.log(zip);
+        // console.log(zip);
         const url = `/api/weather/current/${zip}`;
-        console.log(url);
+        // console.log(url);
         axios.get(url)
             .then(resp => {
             console.log(resp.data);
@@ -52,12 +54,27 @@ class Weather extends Component {
             .catch(err => this.setState( { error: 'We have an error :(' } ));
     }
 
+    getForecastWeather(zip) {
+        // console.log(zip);
+        const url = `/api/weather/forecast/${zip}`;
+        
+        // console.log(url);
+        axios.get(url)
+            .then(resp => {
+            console.log(resp.data);
+                //set state for forecast
+                this.setState({ forecastWeather: [...resp.data.list] })
+            })
+            .catch(err => this.setState( { error: 'We have an error :(' } ));
+    }
+
     search = (event, zip) => {
         event.preventDefault();
         console.log('search zip clicked');
         // console.log(zip);
         this.setState({ zip: zip });
         this.getCurrentWeather(zip);
+        this.getForecastWeather(zip);
     }
 
     render() {
@@ -81,7 +98,8 @@ class Weather extends Component {
                 sunrise={this.state.currentWeather[7].sunrise}
                 sunset={this.state.currentWeather[8].sunset}
                 error={this.state.error} />
-            <List />
+            <List 
+                weatherListing={this.state.forecastWeather} />
             </Container>
         );
     }
