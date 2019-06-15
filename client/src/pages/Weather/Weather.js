@@ -3,7 +3,7 @@ import Hero from '../../components/Hero/Hero';
 import List from '../../components/List/List';
 import SearchNav from '../../components/SearchNav/SearchNav';
 import axios from "axios";
-import { Button, Alert, Container, Row, Col, Form, FormControl, Navbar, Nav } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
 
 class Weather extends Component {
 
@@ -11,11 +11,18 @@ class Weather extends Component {
         currentWeather: [
             { name: "" }
         ],
-        searchedZip: ""
+        zip: ""
     }
 
     componentDidMount() {
-        axios.get('/api/weather/current')
+        this.getCurrentWeather();
+    }
+
+    getCurrentWeather(zip) {
+        console.log(zip);
+        const url = `/api/weather/current/${zip}`;
+        console.log(url);
+        axios.get(url)
             .then(resp => {
             console.log(resp.data);
             this.setState({ 
@@ -30,13 +37,15 @@ class Weather extends Component {
     search = (event, zip) => {
         event.preventDefault();
         console.log('search zip clicked');
-        console.log(zip);
+        // console.log(zip);
+        this.setState({ zip: zip });
+        this.getCurrentWeather(zip);
     }
 
     render() {
-        const style = {
-            border: '1px solid'
-        };
+        // const style = {
+        //     border: '1px solid'
+        // };
 
         return (
             <Container>

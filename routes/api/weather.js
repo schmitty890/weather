@@ -1,10 +1,10 @@
 const router = require("express").Router();
-const productsController = require("../../controllers/weatherController");
+const weatherController = require("../../controllers/weatherController");
 
-router.route("/current")
-  .get(productsController.currentWeather);
+router.route("/current/:zipcode")
+  .get(weatherController.currentWeather);
 
   router.route("/forecast")
-  .get(productsController.forecast);
+  .get(weatherController.forecast);
 
 module.exports = router;

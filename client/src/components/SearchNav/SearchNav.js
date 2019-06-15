@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from "./SearchNav.module.css";
+// import styles from "./SearchNav.module.css";
 import { Navbar, Form, FormControl, Button } from 'react-bootstrap';
 
 const Hero = props => {
