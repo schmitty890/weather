@@ -1,7 +1,4 @@
 .list-wrapper {
     border: 1px solid blue;
-}
-
-.list-width {
-    width: 100px;
+    text-align: center;
 }

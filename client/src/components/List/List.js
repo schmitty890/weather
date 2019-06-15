@@ -11,12 +11,11 @@ const Hero = props => {
     
     return (
         <Col sm className={styles['list-wrapper']}>
-            <div>{props.dateTime}</div>
             <div>{day}</div>
             <Moment fromNow>{props.dateTime}</Moment>
             <div>{props.description}</div>
             <div>{icon} {props.icon}</div>
-            <div>{props.temp}</div>
+            <div>{props.temp} &deg;F</div>
         </Col>
     )
 }

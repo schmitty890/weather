@@ -15,15 +15,15 @@ const Hero = props => {
                     </Col>
                 ) : (
                     <Col sm={12} className={styles.hero}>
-                        <div>{props.city}</div>
-                        <div>{props.cloudiness}</div>
-                        <div>{props.description}</div>
-                        <div>{props.humidity}</div>
-                        <div>{props.pressure}</div>
-                        <div>{props.sunrise}</div>
-                        <div>{props.sunset}</div>
-                        <div>{props.temperature}</div>
-                        <div>{props.windSpeed}</div>
+                        <div>city: {props.city}</div>
+                        <div>cloudiness: {props.cloudiness}</div>
+                        <div>description: {props.description}</div>
+                        <div>humidity: {props.humidity}</div>
+                        <div>pressure: {props.pressure}</div>
+                        <div>sunrise: {props.sunrise}</div>
+                        <div>sunset: {props.sunset}</div>
+                        <div>temperature: {props.temperature}</div>
+                        <div>windSpeed: {props.windSpeed}</div>
                     </Col>
                 )}
         </Row>
