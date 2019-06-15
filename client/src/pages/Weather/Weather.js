@@ -10,7 +10,8 @@ class Weather extends Component {
     state = {
         currentWeather: [
             { name: "" }
-        ]
+        ],
+        searchedZip: ""
     }
 
     componentDidMount() {
@@ -26,6 +27,12 @@ class Weather extends Component {
             .catch(err => console.log('error :('));
     }
 
+    search = (event, zip) => {
+        event.preventDefault();
+        console.log('search zip clicked');
+        console.log(zip);
+    }
+
     render() {
         const style = {
             border: '1px solid'
@@ -33,7 +40,9 @@ class Weather extends Component {
 
         return (
             <Container>
-            <SearchNav />
+            <SearchNav 
+                search={this.state.searchedZip}
+                action={this.search} />
             <Hero 
                 city={this.state.currentWeather[0].name} />
             <List />
