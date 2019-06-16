@@ -1,6 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const routes = require("./routes");
+const mongoose = require("mongoose");
 const app = express();
 const PORT = process.env.PORT || 3001;
 
@@ -15,6 +16,9 @@ if (process.env.NODE_ENV === "production") {
 
 // add routes
 app.use(routes);
+
+// Connect to the Mongo DB
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/mern-weather");
 
 // start the API server
 app.listen(PORT, function() {
