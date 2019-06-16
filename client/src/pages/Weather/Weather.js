@@ -3,7 +3,7 @@ import Hero from '../../components/Hero/Hero';
 import List from '../../components/List/List';
 import SearchNav from '../../components/SearchNav/SearchNav';
 import axios from "axios";
-import { Container, Row } from 'react-bootstrap';
+import { Container, Row, Spinner } from 'react-bootstrap';
 
 class Weather extends Component {
 
@@ -22,6 +22,7 @@ class Weather extends Component {
         ],
         forecastWeather: [],
         zip: "",
+        loading: false,
         error: ""
     }
 
@@ -59,13 +60,16 @@ class Weather extends Component {
     getForecastWeather(zip) {
         // console.log(zip);
         const url = `/api/weather/forecast/${zip}`;
-        
+        this.setState({ loading: true });
         // console.log(url);
         axios.get(url)
             .then(resp => {
             console.log(resp.data);
                 //set state for forecast
-                this.setState({ forecastWeather: [...resp.data.list] })
+                this.setState({ 
+                    forecastWeather: [...resp.data.list],
+                    loading: false
+                })
             })
             .catch(err => this.setState( { error: 'We have an error :(' } ));
     }
@@ -80,13 +84,15 @@ class Weather extends Component {
     }
 
     render() {
-        // const style = {
-        //     border: '1px solid'
-        // };
 
-        console.log(this.state.forecastWeather);
+        // console.log(this.state.forecastWeather);
         const getFirstFourForecasts = this.state.forecastWeather.slice(0, 4);
-        let forecastWeatherResults = 'getting weather...';
+        let forecastWeatherResults = null;
+
+        if(this.state.loading) {
+            forecastWeatherResults = <Spinner animation="border" />;
+        }
+
         forecastWeatherResults = getFirstFourForecasts.map((forecast, index) => {
             return <List
               key={index} 
@@ -95,6 +101,10 @@ class Weather extends Component {
               icon={forecast.weather[0].icon}
               temp={forecast.main.temp} />
         });
+
+        if(this.state.loading) {
+            forecastWeatherResults = <Spinner animation="border" />;
+        }
 
         return (
             <Container>
