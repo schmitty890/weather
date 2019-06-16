@@ -75,6 +75,10 @@ class Weather extends Component {
 
     getForecastWeather(zip) {
         // console.log(zip);
+        if(zip === undefined) {
+            console.log('zip is undefined');
+            zip = this.state.zip;
+        }
         const url = `/api/weather/forecast/${zip}`;
         this.setState({ loading: true });
         // console.log(url);
