@@ -2,7 +2,7 @@ import ReactHtmlParser, { processNodes, convertNodeToElement, htmlparser2 } from
 import Moment from 'moment';
 
 export default {
-    getTimeFromNow: function(time) {
+    getDayFromNow: function(time) {
         var date = Moment(time);
         var day = date.day();
 
@@ -24,5 +24,10 @@ export default {
             default:
                 return 'the day does not exist';
           }
+    },
+    getTimeFromNow: function(time) {
+        const date = Moment.unix(time).format("YYYY-MM-DD HH:mm");
+        const timeFromNow = Moment(date).fromNow();
+        return timeFromNow;
     }
 };

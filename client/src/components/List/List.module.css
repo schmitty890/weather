@@ -20,6 +20,18 @@
     text-transform: capitalize;
 }
 
+.icon {
+    font-size: 80px;
+}
+
+.temp {
+    font-size: 20px;
+}
+
+.description {
+    font-size: 14px;
+}
+
 @media (max-width: 575px) {
     .list-wrapper:first-child {
         margin-left: 10px;

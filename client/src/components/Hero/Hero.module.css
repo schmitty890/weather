@@ -7,3 +7,19 @@
     margin-bottom: 10px;
     background-color: #485059;
 }
+
+.city {
+    font-size: 40px;
+}
+
+.temp {
+    font-size: 60px;
+}
+
+.description {
+    font-size: 40px;
+}
+
+.icon {
+    font-size: 50px;
+}
