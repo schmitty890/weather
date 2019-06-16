@@ -8,6 +8,7 @@ const App = () =>
     <section>
       <Switch>
         <Route exact path="/" component={Weather} />
+        <Route exact path="/account" component={Weather} />
         <Route component={NoMatch} />
       </Switch>
     </section>

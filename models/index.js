@@ -1,3 +1,4 @@
 module.exports = {
-    Zipcode: require("./zipcode")
+    Zipcode: require("./zipcode"),
+    User: require("./user")
 };
