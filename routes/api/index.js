@@ -1,7 +1,7 @@
 const router = require("express").Router();
-const productsRoutes = require("./weather");
+const weatherRoutes = require("./weather");
 
 // product routes
-router.use("/api/weather", productsRoutes);
+router.use("/api/weather", weatherRoutes);
 
 module.exports = router;
