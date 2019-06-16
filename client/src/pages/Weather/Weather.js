@@ -28,12 +28,27 @@ class Weather extends Component {
     }
 
     componentDidMount() {
-        this.getCurrentWeather();
-        this.getForecastWeather();
+        this.getZipcodeHandler();
+        // this.getForecastWeather();
+    }
+
+    getZipcodeHandler() {
+        myAPI.getZip()
+          .then(res => this.setState({zip: res.data[0].zip}))
+          .then(res => {
+            this.getCurrentWeather();
+            this.getForecastWeather();
+          })
+          .catch(err => console.log(err));
     }
 
     getCurrentWeather(zip) {
-        // console.log(zip);
+        // console.log('zip');
+        // console.log(typeof zip);
+        if(zip === undefined) {
+            console.log('zip is undefined');
+            zip = this.state.zip;
+        }
         const url = `/api/weather/current/${zip}`;
         // console.log(url);
         axios.get(url)
@@ -85,7 +100,7 @@ class Weather extends Component {
         myAPI.saveZip({
             zip: zip
           })
-            .then(res => alert('zipcode saved successfully!'))
+            .then(res => console.log('zipcode saved'))
             .catch(err => console.log(err));
     }
 
@@ -115,6 +130,7 @@ class Weather extends Component {
         return (
             <Container>
             <SearchNav 
+                zip={this.state.zip}
                 search={this.state.searchedZip}
                 action={this.search} />
             <Hero 

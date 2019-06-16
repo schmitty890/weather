@@ -32,5 +32,12 @@ module.exports = {
       .create(req.body)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
+  },
+  getZip: function(req, res) {
+    db.Zipcode
+      .find(req.query)
+      .sort({ dateAdded: -1 })
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
   }
 };

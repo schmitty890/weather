@@ -8,6 +8,7 @@ router.route("/current/:zipcode")
   .get(weatherController.forecast);
 
 router.route("/zip")
+  .get(weatherController.getZip)
   .post(weatherController.create);
 
 module.exports = router;
