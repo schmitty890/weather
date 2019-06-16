@@ -1,5 +1,31 @@
 .list-wrapper {
-    border: 1px solid blue;
+    /* border: 1px solid blue; */
     text-align: center;
     color: #fff;
+    padding: 20px;
+    background-color: #485059;
+    margin: 10px;
+    border-radius: 5px;
+}
+
+.list-wrapper:first-child {
+    margin-left: 0px;
+}
+
+.list-wrapper:last-child {
+    margin-right: 0px;
+}
+
+.day {
+    text-transform: capitalize;
+}
+
+@media (max-width: 575px) {
+    .list-wrapper:first-child {
+        margin-left: 10px;
+    }
+    
+    .list-wrapper:last-child {
+        margin-right: 10px;
+    }   
 }

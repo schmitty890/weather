@@ -11,7 +11,7 @@ const Hero = props => {
     
     return (
         <Col sm className={styles['list-wrapper']}>
-            <div>{day}</div>
+            <div className={styles.day}>{day}</div>
             <Moment fromNow>{props.dateTime}</Moment>
             <div>{props.description}</div>
             <div>{icon} {props.icon}</div>
