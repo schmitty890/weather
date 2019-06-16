@@ -7,10 +7,10 @@ const Hero = props => {
     let input;
     return (
         <Navbar bg="dark" variant="dark">
-        <Form inline>
-            <FormControl ref={node => input = node} type="text" placeholder="zipcode" className="mr-sm-2" />
-            <Button variant="outline-info" onClick={(event) => props.action(event, input.value)}>Search by zipcode!</Button>
-        </Form>
+            <Form inline>
+                <FormControl ref={node => input = node} type="text" placeholder="zipcode" className="mr-sm-2" />
+                <Button variant="outline-info" onClick={(event) => props.action(event, input.value)}>Search by zipcode!</Button>
+            </Form>
         </Navbar>
     )
 }
