@@ -1,4 +1,5 @@
 const axios = require("axios");
+const db = require("../models");
 
 module.exports = {
   currentWeather: function(req, res) {
@@ -25,5 +26,11 @@ module.exports = {
         res.send(response.data);
       })
       .catch(err => res.send(err));
+  },
+  create: function(req, res) {
+    db.Zipcode
+      .create(req.body)
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
   }
 };

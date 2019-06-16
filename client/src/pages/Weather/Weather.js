@@ -4,6 +4,7 @@ import List from '../../components/List/List';
 import SearchNav from '../../components/SearchNav/SearchNav';
 import axios from "axios";
 import { Container, Row, Spinner } from 'react-bootstrap';
+import myAPI from "../../utils/api/api";
 
 class Weather extends Component {
 
@@ -81,6 +82,11 @@ class Weather extends Component {
         this.setState({ zip: zip });
         this.getCurrentWeather(zip);
         this.getForecastWeather(zip);
+        myAPI.saveZip({
+            zip: zip
+          })
+            .then(res => alert('zipcode saved successfully!'))
+            .catch(err => console.log(err));
     }
 
     render() {
