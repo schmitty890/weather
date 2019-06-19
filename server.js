@@ -2,12 +2,16 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const routes = require("./routes");
 const mongoose = require("mongoose");
+const passport = require('passport');
 const app = express();
 const PORT = process.env.PORT || 3001;
 
 // define middleware
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+
+app.use(passport.initialize());
+app.use(passport.session());
 
 // serve up static assets
 if (process.env.NODE_ENV === "production") {
